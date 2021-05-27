@@ -1,7 +1,15 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# config
+.env
+etc/dhparam.pem
+etc/gui.conf
+etc/nginx-selfsigned.crt
+etc/nginx-selfsigned.key
+
 # compiled output
 /dist
+/build
 
 # dependencies
 /node_modules
