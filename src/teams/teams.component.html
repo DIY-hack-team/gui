@@ -1,0 +1,16 @@
+<a routerLink="/teams/form" class="btn btn-light open-form-btn">Добавить</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of teams; let i = index" [ngClass]="{'table-active': i % 2 == 0, 'table-light': i % 2 == 1}">
+      <td>{{item.name}}</td>
+      <td>{{item.description}}</td>
+    </tr>
+  </tbody>
+</table>

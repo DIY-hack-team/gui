@@ -1,0 +1,19 @@
+appbar {
+    display: block;
+
+    .navbar {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .nav-link {
+            color: #000 !important;
+            &.active {
+                color: #777 !important;
+            }
+        }
+    }
+}
