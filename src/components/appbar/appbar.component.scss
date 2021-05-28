@@ -3,6 +3,9 @@
 app-appbar {
   min-width: 320px;
   display: block;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 
   .navbar {
     padding-top: 0;
@@ -31,6 +34,9 @@ app-appbar {
       //background: $primary !important;
       &.active {
         background: $primary-dark !important;
+      }
+      &:hover {
+        background: rgba($primary-dark,.5) !important;
       }
     }
   }
