@@ -1,14 +1,9 @@
+@import '../../styles/cards';
+
 app-projects {
   display: block;
 
   .open-form-btn {
     margin-bottom: 8px;
-  }
-
-  .card {
-    margin-bottom: 8px;
-    .item-label {
-      font-weight: bold;
-    }
   }
 }
