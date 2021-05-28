@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppbarComponent } from './components/appbar/appbar.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -41,6 +42,7 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
   declarations: [
     AppComponent,
     AppbarComponent,
+    FiltersComponent,
 
     LoginComponent,
     HomeComponent,

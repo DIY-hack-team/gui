@@ -1,0 +1,19 @@
+<form (submit)="emitOnSubmit()">
+  <input
+    [(ngModel)]="params.search"
+    [ngModelOptions]="{ standalone: true }"
+    type="text"
+    class="form-control"
+    [placeholder]="searchPlaceholder"
+  />
+  <select
+    *ngIf="hasDomainFilter"
+    [(ngModel)]="params.domainId"
+    [ngModelOptions]="{ standalone: true }"
+  >
+    <option *ngFor="let item of domains" [value]="item.id">
+      {{ item.nameRus }}
+    </option>
+  </select>
+  <button type="submit" class="btn btn-outline-primary">Поиск</button>
+</form>

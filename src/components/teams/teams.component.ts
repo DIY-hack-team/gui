@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiTeamsService } from 'src/api/teams/api-teams.service';
 import { Team } from 'src/api/teams/entites/team.entity';
+import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
   selector: 'app-teams',
@@ -17,5 +18,9 @@ export class TeamsComponent implements OnInit {
     this.apiTeams.get().then((teams: Array<Team>) => {
       this.teams = teams;
     });
+  }
+
+  onSearch(params: FilterParams) {
+    console.log(params);
   }
 }

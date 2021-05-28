@@ -1,1 +1,6 @@
+<app-filters
+  searchPlaceholder="Поиск ilike по имени или = по id"
+  [hasDomainFilter]="true"
+  (onSubmit)="onSearch($event)"
+></app-filters>
 <app-teams-item [item]="item" *ngFor="let item of teams"></app-teams-item>
