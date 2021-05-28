@@ -2,10 +2,7 @@
 
 # config
 .env
-etc/dhparam.pem
-etc/gui.conf
-etc/nginx-selfsigned.crt
-etc/nginx-selfsigned.key
+/src/environment.prod.ts
 
 # compiled output
 /dist

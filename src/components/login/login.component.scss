@@ -1,0 +1,12 @@
+app-login {
+  display: block;
+  form {
+    width: 280px;
+
+    .form-control,
+    .btn,
+    .alert-danger {
+      margin-top: 8px;
+    }
+  }
+}

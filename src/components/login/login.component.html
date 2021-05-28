@@ -1,0 +1,21 @@
+<form (submit)="login()">
+  <input
+    [(ngModel)]="username"
+    class="form-control"
+    placeholder="Enter user name"
+    name="username"
+    type="username"
+    autofocus
+  />
+  <input
+    [(ngModel)]="password"
+    class="form-control"
+    name="password"
+    type="password"
+    placeholder="Enter password"
+  />
+  <button type="submit" class="btn btn-primary btn-block">Login</button>
+  <div *ngIf="failed" class="alert alert-danger" role="alert">
+    Invalid username or password
+  </div>
+</form>
