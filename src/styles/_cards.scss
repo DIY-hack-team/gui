@@ -1,0 +1,28 @@
+.card {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 8px;
+
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .row {
+      margin: 0;
+    }
+    .actions {
+      margin-top: 10px;
+      a {
+        margin-right: 10px;
+      }
+    }
+    
+    .item-label {
+      font-weight: bold;
+    }
+
+    .photo-zone {
+      font-size: 10vh;
+    }
+  }
+}
