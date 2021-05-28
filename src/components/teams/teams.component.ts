@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { TeamsService } from './teams.service';
-import { TeamModel } from './team-model';
+import { ApiTeamsService } from 'src/api/teams/api-teams.service';
+import { Team } from 'src/api/teams/entites/team.entity';
 
 @Component({
   selector: 'app-teams',
@@ -9,12 +9,12 @@ import { TeamModel } from './team-model';
   encapsulation: ViewEncapsulation.None,
 })
 export class TeamsComponent implements OnInit {
-  public teams: Array<TeamModel> = [];
+  public teams: Array<Team> = [];
 
-  constructor(private teamsService: TeamsService) {}
+  constructor(private apiTeams: ApiTeamsService) {}
 
   ngOnInit(): void {
-    this.teamsService.getTeams().then((teams: Array<TeamModel>) => {
+    this.apiTeams.get().then((teams: Array<Team>) => {
       this.teams = teams;
     });
   }

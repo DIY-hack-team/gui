@@ -1,19 +1,48 @@
-appbar {
-    display: block;
+@import '../../colors';
 
-    .navbar {
-        padding-top: 0;
-        padding-bottom: 0;
+app-appbar {
+  min-width: 320px;
+  display: block;
 
-        .navbar-toggler {
-            border: none;
-        }
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: $primary !important;
+    font-size: 20px;
 
-        .nav-link {
-            color: #000 !important;
-            &.active {
-                color: #777 !important;
-            }
-        }
+    .navbar-brand {
+      padding-right: 16px;
+      img {
+        position: relative;
+        width: 48px;
+        bottom: 2px;
+      }
     }
+
+    .navbar-toggler {
+      color: $white !important;
+      border-color: $white !important;
+      border: none;
+    }
+
+    .nav-link {
+      padding: 8px 16px !important;
+      color: $white !important;
+      //background: $primary !important;
+      &.active {
+        background: $primary-dark !important;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    .navbar {
+      margin: 0 !important;
+      padding: 0 !important;
+
+      .navbar-brand {
+        padding-right: 0;
+        padding-left: 16px;
+      }
+    }
+  }
 }

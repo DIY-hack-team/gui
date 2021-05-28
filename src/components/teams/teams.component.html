@@ -1,19 +1,19 @@
-<a routerLink="/teams/form" class="btn btn-light open-form-btn">Добавить</a>
+<!--<a routerLink="/projects/form" class="btn btn-light open-form-btn">Добавить</a>-->
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Название</th>
-      <th scope="col">Описание</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      *ngFor="let item of teams; let i = index"
-      [ngClass]="{ 'table-active': i % 2 == 0, 'table-light': i % 2 == 1 }"
-    >
-      <td>{{ item.name }}</td>
-      <td>{{ item.description }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngFor="let item of teams" class="card">
+  <h5 class="card-header">{{ item.id }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
+    </h5>
+    <p class="card-text">
+      <span class="item-label">Status:</span> {{ item.status }} <br /><span
+        class="item-label"
+        >Domain:</span
+      >
+      {{ item.domainId }} <br /><span class="item-label">Cost Center:</span>
+      {{ item.costCenter }} <br /><span class="item-label">Team type:</span>
+      {{ item.teamType }}
+    </p>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { AuthUser } from '../entities/auth_user.entity';
+import { AuthUser } from '../entities/auth-user.entity';
 
 export class LoginResponseDTO {
   token: string;

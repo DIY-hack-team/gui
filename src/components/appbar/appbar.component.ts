@@ -2,8 +2,7 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'appbar',
+  selector: 'app-appbar',
   templateUrl: './appbar.component.html',
   styleUrls: ['./appbar.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -16,6 +15,10 @@ export class AppbarComponent implements OnInit {
   ngOnInit(): void {}
 
   public setPath(path: string): string | null {
-    return path === this.location.path() ? null : path;
+    return this.isActive(path) ? null : path;
+  }
+
+  public isActive(path: string): boolean {
+    return path === this.location.path();
   }
 }

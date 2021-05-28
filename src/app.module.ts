@@ -13,10 +13,11 @@ import { AppbarComponent } from './components/appbar/appbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { TeamsComponent } from './components/teams/teams.component';
-import { TeamsFormComponent } from './components/teams/teams-form.component';
 
-import { TeamsService } from './components/teams/teams.service';
 import { ApiAuthService } from './api/auth/api-auth.service';
+import { ApiProjectsService } from './api/projects/api-projects.service';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ApiTeamsService } from './api/teams/api-teams.service';
 
 function initApp(location: Location, apiAuth: ApiAuthService): Function {
   return async (): Promise<void> => {
@@ -34,7 +35,7 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
     LoginComponent,
     HomeComponent,
     TeamsComponent,
-    TeamsFormComponent,
+    ProjectsComponent,
   ],
   imports: [
     CommonModule,
@@ -50,13 +51,13 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
         pathMatch: 'full',
       },
       {
-        path: 'teams',
-        component: TeamsComponent,
+        path: 'projects',
+        component: ProjectsComponent,
         pathMatch: 'full',
       },
       {
-        path: 'teams/form',
-        component: TeamsFormComponent,
+        path: 'teams',
+        component: TeamsComponent,
         pathMatch: 'full',
       },
       {
@@ -67,7 +68,6 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
     ]),
   ],
   providers: [
-    TeamsService,
     {
       provide: APP_INITIALIZER,
       useFactory: initApp,
@@ -75,6 +75,8 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
       multi: true,
     },
     ApiAuthService,
+    ApiProjectsService,
+    ApiTeamsService,
   ],
   bootstrap: [AppComponent],
 })

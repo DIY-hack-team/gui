@@ -1,0 +1,16 @@
+<!--<a routerLink="/projects/form" class="btn btn-light open-form-btn">Добавить</a>-->
+
+<div *ngFor="let item of projects" class="card">
+  <h5 class="card-header">{{ item.id }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
+    </h5>
+    <p class="card-text">
+      <span class="item-label">Status:</span> {{ item.status }}
+      <ng-container *ngIf="item.itSystem">
+        <br /><span class="item-label">IT System:</span> {{ item.itSystem }}
+      </ng-container>
+    </p>
+  </div>
+</div>
