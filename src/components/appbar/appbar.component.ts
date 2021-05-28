@@ -9,6 +9,28 @@ import { Location } from '@angular/common';
 })
 export class AppbarComponent implements OnInit {
   public isCollapsed = true;
+  public routes = [
+    {
+      name: 'Сотрудники',
+      path: 'employees',
+    },
+    {
+      name: 'Команды',
+      path: 'teams',
+    },
+    {
+      name: 'Проекты',
+      path: 'projects',
+    },
+    {
+      name: 'Продукты',
+      path: 'products',
+    },
+    {
+      name: 'Домены',
+      path: 'domains',
+    },
+  ];
 
   constructor(private location: Location) {}
 

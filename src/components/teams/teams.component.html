@@ -1,23 +1,21 @@
-<!--<a routerLink="/projects/form" class="btn btn-light open-form-btn">Добавить</a>-->
-
 <div *ngFor="let item of teams" class="card">
-  <h5 class="card-header">{{ item.id }}</h5>
+  <h5 class="card-header">Уникальный номер: {{ item.id }}</h5>
   <div class="card-body">
     <h5 class="card-title">
       <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
     </h5>
     <p class="card-text">
-      <span class="item-label">Status:</span> {{ item.status }} <br /><span
+      <span class="item-label">Статус:</span> {{ item.status }} <br /><span
         class="item-label"
-        >Domain:</span
+        >Домен:</span
       >
-      {{ item.domainId }} <br /><span class="item-label">Cost Center:</span>
-      {{ item.costCenter }} <br /><span class="item-label">Team type:</span>
+      {{ item.domainId }} <br /><span class="item-label">Отдел:</span>
+      {{ item.costCenter }} <br /><span class="item-label">Тип команды:</span>
       {{ item.teamType }}
     </p>
 
     <a routerLink="/projects/bind:team" class="btn btn-outline-primary">
-      <i class="bi bi-share"></i> Bind Project
+      <i class="bi bi-share"></i> Привязать проект
     </a>
   </div>
 </div>

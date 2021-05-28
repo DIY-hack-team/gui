@@ -1,0 +1,18 @@
+<div *ngFor="let item of domains" class="card">
+  <h5 class="card-header">Уникальный номер: {{ item.id }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">
+      <a routerLink="/domains/{{ item.id }}">{{ item.nameRus || item.name }}</a>
+    </h5>
+    <p class="card-text">
+      <span class="item-label">Тэг:</span> {{ item.tag }} <br /><span
+        class="item-label"
+        >Статус:</span
+      >
+      {{ item.status }}
+    </p>
+    <a routerLink="/teams/bind:domain" class="btn btn-outline-primary">
+      <i class="bi bi-share"></i> Привязать команду
+    </a>
+  </div>
+</div>
