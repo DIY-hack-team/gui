@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "lint": "ng lint",
     "docker:build": "docker build --tag hachathon-client.v1.2021 .",
     "docker:run": "docker run --name hachathon-client -d -p 4200:80 hachathon-client.v1.2021"
