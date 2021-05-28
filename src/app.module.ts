@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 
 import { EmployeesComponent } from './components/employees/employees.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { TeamsItemComponent } from './components/teams/teams-item.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProductsComponent } from './components/products/products.component';
 import { DomainsComponent } from './components/domains/domains.component';
@@ -46,6 +47,7 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
 
     EmployeesComponent,
     TeamsComponent,
+    TeamsItemComponent,
     ProjectsComponent,
     ProductsComponent,
     DomainsComponent,
