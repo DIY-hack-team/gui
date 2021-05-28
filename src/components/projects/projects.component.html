@@ -1,27 +1,33 @@
-<div *ngFor="let item of projects" class="card">
-  <div class="card-body">
-    <div class="info-zone">
-      <h5 class="card-title">
-        <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
-      </h5>
-      <div>
-        <span class="item-label">Статус:</span> {{ item.status }}
-        <ng-container *ngIf="item.itSystem">
-          <br /><span class="item-label">IT Система:</span> {{ item.itSystem }}
-        </ng-container>
+<app-filters searchPlaceholder="Поиск ilike по имени или = по id" [hasDomainFilter]="true"
+  (onSubmit)="onSearch($event)"></app-filters>
+<div class="row">
+  <div class="col-md-9 ms-sm-auto col-lg-4 px-md-4">
+    <div *ngFor="let item of projects" class="card">
+      <div class="card-body">
+        <div class="info-zone">
+          <h5 class="card-title">
+            <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
+          </h5>
+          <div>
+            <span class="item-label">Статус:</span> {{ item.status }}
+            <ng-container *ngIf="item.itSystem">
+              <br /><span class="item-label">IT Система:</span> {{ item.itSystem }}
+            </ng-container>
+          </div>
+          <!--Change router link defenition-->
+          <div class="row actions">
+            <a routerLink="/teams/bind:project" class="btn btn-outline-primary">
+              <i class="bi bi-share"></i> Редактировать связи
+            </a>
+            <a routerLink="" class="btn btn-outline-primary">
+              <i class="bi bi-three-dots-vertical"></i> Подробнее
+            </a>
+          </div>
+        </div>
+        <div class="photo-zone">
+          <i class="bi bi-person-square"></i>
+        </div>
       </div>
-      <!--Change router link defenition-->
-      <div class="row actions">
-        <a routerLink="/teams/bind:project" class="btn btn-outline-primary">
-          <i class="bi bi-share"></i> Редактировать связи
-        </a>
-        <a routerLink="" class="btn btn-outline-primary">
-          <i class="bi bi-three-dots-vertical"></i> Подробнее
-        </a>
-      </div>
-    </div>
-    <div class="photo-zone">
-      <i class="bi bi-person-square"></i>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiDomainsService } from 'src/api/domains/api-domains.service';
 import { Domain } from 'src/api/domains/models/domain.entity';
+import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
   selector: 'app-domains',
@@ -17,5 +18,9 @@ export class DomainsComponent implements OnInit {
     this.apiDomains.get().then((domains: Array<Domain>) => {
       this.domains = domains;
     });
+  }
+
+  onSearch(params: FilterParams) {
+    console.log(params);
   }
 }

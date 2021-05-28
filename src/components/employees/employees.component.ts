@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiEmployeesService } from 'src/api/empoyees/api-employees.service';
 import { Employee } from 'src/api/empoyees/models/employee.entity';
+import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
   selector: 'app-employees',
@@ -17,5 +18,9 @@ export class EmployeesComponent implements OnInit {
     this.apiEmployees.get().then((employees: Array<Employee>) => {
       this.employees = employees;
     });
+  }
+
+  onSearch(params: FilterParams) {
+    console.log(params);
   }
 }

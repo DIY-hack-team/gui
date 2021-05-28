@@ -1,26 +1,33 @@
-<div *ngFor="let item of employees" class="card">
-  <div class="card-body">
-    <div class="info-zone">
-      <h5 class="card-title">
-        <a routerLink="/employees/{{ item.ldap }}">{{ item.userName }}</a>
-      </h5>
-      <div>
-        <span class="item-label">Организация:</span> {{ item.organisation }}
-        <br /><span class="item-label">Отдел:</span> {{ item.costCenter }}
-        <br /><span class="item-label">Должность:</span> {{ item.businessRole }}
+<app-filters searchPlaceholder="Поиск ilike по имени или = по id" [hasDomainFilter]="true"
+  (onSubmit)="onSearch($event)"></app-filters>
+<div class="row">
+  <div class="col-md-9 ms-sm-auto col-lg-4 px-md-4">
+    <div *ngFor="let item of employees" class="card">
+      <div class="card-body">
+        <div class="info-zone">
+          <h5 class="card-title">
+            <a routerLink="/employees/{{ item.ldap }}">{{ item.userName }}</a>
+          </h5>
+          <div>
+            <span class="item-label">Организация:</span> {{ item.organisation }}
+            <br /><span class="item-label">Отдел:</span> {{ item.costCenter }}
+            <br /><span class="item-label">Должность:</span> {{ item.businessRole }}
+          </div>
+          <!--Change router link defenition-->
+          <div class="row actions">
+            <a routerLink="/teams/bind:employee-{{item.ldap}}" class="btn btn-outline-primary">
+              <i class="bi bi-share"></i> Редактировать связи
+            </a>
+            <a routerLink="" class="btn btn-outline-primary">
+              <i class="bi bi-three-dots-vertical"></i> Подробнее
+            </a>
+          </div>
+        </div>
+        <div class="photo-zone">
+          <i class="bi bi-person-square"></i>
+        </div>
       </div>
-      <!--Change router link defenition-->
-      <div class="row actions">
-        <a routerLink="/teams/bind:employee-{{item.ldap}}" class="btn btn-outline-primary">
-          <i class="bi bi-share"></i> Редактировать связи
-        </a>
-        <a routerLink="" class="btn btn-outline-primary">
-          <i class="bi bi-three-dots-vertical"></i> Подробнее
-        </a>
-      </div>
-    </div>
-    <div class="photo-zone">
-      <i class="bi bi-person-square"></i>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>

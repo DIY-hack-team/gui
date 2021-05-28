@@ -24,3 +24,7 @@ npm-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+etc/nginx-selfsigned.key
+etc/dhparam.pem
+etc/gui.conf
+etc/nginx-selfsigned.crt

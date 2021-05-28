@@ -1,3 +1,17 @@
 app-filters {
   display: block;
+  form {
+    input {
+      width: 100%;
+      margin-right: 10px;
+    }
+    select {
+      width: auto;
+      margin-right: 10px;
+    }
+    button {
+      width: auto;
+    }
+  }
+  margin-bottom: 10px;
 }
