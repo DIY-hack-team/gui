@@ -2,10 +2,13 @@
   <div class="card-body">
     <div class="info-zone">
       <h5 class="card-title">
-        <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
+        <a routerLink="/projects/{{ item.id }}">{{ item.nameRus }}</a>
       </h5>
       <div>
-        <span class="item-label">Статус:</span> {{ item.status }} <br /><span class="item-label">Домен:</span>
+        <span class="item-label">Статус:</span> {{ item.status }} <br /><span
+          class="item-label"
+          >Домен:</span
+        >
         {{ item.domainId }} <br /><span class="item-label">Отдел:</span>
         {{ item.costCenter }} <br /><span class="item-label">Тип команды:</span>
         {{ item.teamType }}

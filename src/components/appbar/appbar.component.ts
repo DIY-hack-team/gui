@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { AppbarRoute } from './models/appbar-route';
+import { AppbarRoutesService } from './appbar-routes.service';
 
 @Component({
   selector: 'app-appbar',
@@ -9,38 +11,15 @@ import { Location } from '@angular/common';
 })
 export class AppbarComponent implements OnInit {
   public isCollapsed = true;
-  public routes = [
-    {
-      name: 'Сотрудники',
-      path: 'employees',
-    },
-    {
-      name: 'Команды',
-      path: 'teams',
-    },
-    {
-      name: 'Проекты',
-      path: 'projects',
-    },
-    {
-      name: 'Продукты',
-      path: 'products',
-    },
-    {
-      name: 'Домены',
-      path: 'domains',
-    },
-  ];
+  public routes: Array<AppbarRoute> = [];
+  public setPath: Function;
+  public isActive: Function;
 
-  constructor(private location: Location) {}
+  constructor(appbarRoutes: AppbarRoutesService) {
+    this.routes = appbarRoutes.routes;
+    this.setPath = appbarRoutes.setPath.bind(appbarRoutes);
+    this.isActive = appbarRoutes.isActive.bind(appbarRoutes);
+  }
 
   ngOnInit(): void {}
-
-  public setPath(path: string): string | null {
-    return this.isActive(path) ? null : path;
-  }
-
-  public isActive(path: string): boolean {
-    return path === this.location.path();
-  }
 }

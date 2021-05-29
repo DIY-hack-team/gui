@@ -18,6 +18,7 @@ export class ApiProjectsService {
           return {
             id: item.product_id,
             name: item.name,
+            employee: item.employee,
             itSystem: item.it_system,
             status: item.status,
           };

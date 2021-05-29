@@ -1,1 +1,59 @@
-Home
+<div class="row">
+  <div *ngFor="let item of routes" class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <a routerLink="{{ item.path }}">{{ item.name }}</a>
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ item.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<h4>Исходный код</h4>
+<p>Проект состоит из 3-х репозиториев:</p>
+<ol>
+  <li>
+    <strong>gui:</strong>
+    <a target="_blank" href="https://github.com/DIY-hack-team/gui"
+      >https://github.com/DIY-hack-team/gui</a
+    >
+  </li>
+  <li>
+    <strong>backend:</strong>
+    <a target="_blank" href="https://github.com/DIY-hack-team/backend"
+      >https://github.com/DIY-hack-team/backend</a
+    >
+  </li>
+  <li>
+    <strong>infra:</strong>
+    <a target="_blank" href="https://github.com/DIY-hack-team/infra"
+      >https://github.com/DIY-hack-team/infra</a
+    >
+  </li>
+</ol>
+<p class="project-info">
+  Проект <strong>gui</strong> написан на фреймворке
+  <a target="_blank" href="https://angular.io">angular</a>. Настроена
+  непрерываная сборка - скрипт deploy.sh. Его можно интегрировать в любую CI/CD.
+  <br />
+  Проект <strong>backend</strong> написан на фреймворке
+  <a target="_blank" href="https://nestjs.com">nestjs</a>. Настроена
+  непрерываная сборка - скрипт deploy.sh. Его можно интегрировать в любую CI/CD.
+  <br />
+  Проект <strong>infra</strong> хранит скрипты настройки
+  <a target="_blank" href="https://www.postgresql.org">PostgreSQL</a> и
+  <a target="_blank" href="https://nginx.org">nginx</a>. Конфигурацие
+  обновляется с помощью скрипта deploy.sh
+  <br />
+  Все секреты из проекта убраны. Написаны заглушки для настроек в файле
+  .env.local.env. Настройки prod <strong>backend</strong> находятся в
+  .env.prod.env
+</p>
+
+<h4>Swagger UI</h4>
+<p>
+  <a target="_blank" href="http://151.248.121.169:4200/api"
+    >http://151.248.121.169:4200/api</a
+  >
+</p>
