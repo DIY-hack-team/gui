@@ -7,12 +7,12 @@
         </div>
         <div class="info-zone">
           <h5 class="card-title">
-            <a routerLink="/employees//view"></a>
+            <a>{{employee.userName}}</a>
           </h5>
           <div>
-            <span class="item-label">Организация:</span>
-            <br /><span class="item-label">Отдел:</span>
-            <br /><span class="item-label">Должность:</span>
+            <span class="item-label">Организация: </span>{{employee.organisation}}
+            <br /><span class="item-label">Отдел: </span>{{employee.costCenter}}
+            <br /><span class="item-label">Должность: </span>{{employee.businessRole}}
           </div>
         </div>
       </div>

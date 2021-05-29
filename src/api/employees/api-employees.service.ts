@@ -26,4 +26,20 @@ export class ApiEmployeesService {
         });
       });
   }
+
+  async getEmployeeByLdap(ldap: number): Promise<Employee> {
+    return await this.http
+      .get(`${environment.basePath}/employees/${ldap}`)
+      .toPromise()
+      .then((item: any) => {
+        return {
+          ldap: item.ldap,
+          userName: item.name,
+          legalEntity: item.legal_entity,
+          organisation: item.organisation,
+          businessRole: item.business_role,
+          costCenter: item.cost_center,
+        }
+      });
+  }
 }

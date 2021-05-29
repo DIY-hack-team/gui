@@ -22,8 +22,6 @@ import { TeamsComponent } from './components/teams/teams.component';
 import { TeamsItemComponent } from './components/teams/teams-item.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProductsComponent } from './components/products/products.component';
-import { ProductsEditItemComponent } from './components/products/edit-component/products-edit-item.component';
-import { ProductsViewItemComponent } from './components/products/view-component/products-view-item.component';
 import { DomainsComponent } from './components/domains/domains.component';
 
 import { ApiAuthService } from './api/auth/api-auth.service';
