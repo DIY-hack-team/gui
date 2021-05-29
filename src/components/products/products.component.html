@@ -9,7 +9,9 @@
       <div class="card-body">
         <div class="info-zone">
           <h5 class="card-title">
-            <a routerLink="/products/{{ item.id }}">{{ item.name }}</a>
+            <a routerLink="/products/{{ item.id }}" class="disabled">{{
+              item.name
+            }}</a>
           </h5>
           <div>
             <span class="item-label">Команда:</span> {{ item.teamId }}
@@ -18,10 +20,13 @@
           </div>
           <!--Change router link defenition-->
           <div class="row actions">
-            <a routerLink="/products/bind:team" class="btn btn-outline-primary">
+            <a
+              routerLink="/products/bind:team"
+              class="btn btn-outline-primary disabled"
+            >
               <i class="bi bi-share"></i> Редактировать связи
             </a>
-            <a routerLink="" class="btn btn-outline-primary">
+            <a routerLink="" class="btn btn-outline-primary disabled">
               <i class="bi bi-three-dots-vertical"></i> Подробнее
             </a>
           </div>

@@ -14,6 +14,7 @@ export class ApiEmployeesService {
       .get(`${environment.basePath}/employees`, { params: params })
       .toPromise()
       .then((items: any) => {
+        items = items || [];
         return items.map((item: any) => {
           return {
             ldap: item.ldap,
@@ -39,7 +40,7 @@ export class ApiEmployeesService {
           organisation: item.organisation,
           businessRole: item.business_role,
           costCenter: item.cost_center,
-        }
+        };
       });
   }
 }

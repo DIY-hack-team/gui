@@ -14,6 +14,7 @@ export class ApiProjectsService {
       .get(`${environment.basePath}/projects`, { params: params })
       .toPromise()
       .then((items: any) => {
+        items = items || [];
         return items.map((item: any) => {
           return {
             id: item.product_id,

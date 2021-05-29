@@ -1,23 +1,34 @@
-<app-filters searchPlaceholder="Поиск ilike по имени или = по id" [hasDomainFilter]="true"
-  (onSubmit)="onSearch($event)"></app-filters>
+<app-filters
+  searchPlaceholder="Поиск ilike по имени или = по id"
+  [hasDomainFilter]="true"
+  (onSubmit)="onSearch($event)"
+></app-filters>
 <div class="row">
   <div class="col-md-9 ms-sm-auto col-lg-4 px-md-4">
     <div *ngFor="let item of domains" class="card">
       <div class="card-body">
         <div class="info-zone">
           <h5 class="card-title">
-            <a routerLink="/domains/{{ item.id }}">{{ item.nameRus || item.name }}</a>
+            <a routerLink="/domains/{{ item.id }}" class="disabled">{{
+              item.nameRus || item.name
+            }}</a>
           </h5>
           <div>
-            <span class="item-label">Тэг:</span> {{ item.tag }} <br /><span class="item-label">Статус:</span>
+            <span class="item-label">Тэг:</span> {{ item.tag }} <br /><span
+              class="item-label"
+              >Статус:</span
+            >
             {{ item.status }}
           </div>
           <!--Change router link defenition-->
           <div class="row actions">
-            <a routerLink="/teams/bind:domain" class="btn btn-outline-primary">
+            <a
+              routerLink="/teams/bind:domain"
+              class="btn btn-outline-primary disabled"
+            >
               <i class="bi bi-share"></i> Редактировать связи
             </a>
-            <a routerLink="" class="btn btn-outline-primary">
+            <a routerLink="" class="btn btn-outline-primary disabled">
               <i class="bi bi-three-dots-vertical"></i> Подробнее
             </a>
           </div>

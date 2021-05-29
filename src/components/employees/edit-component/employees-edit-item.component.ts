@@ -8,12 +8,13 @@ import { ApiEmployeesService } from '../../../api/employees/api-employees.servic
 import { ApiProductsService } from '../../../api/products/api-products.service';
 import { ApiProjectsService } from '../../../api/projects/api-projects.service';
 import { ApiDomainsService } from '../../../api/domains/api-domains.service';
-import { ApiTeamsService } from '../../../api/teams/api-teams.service'
+import { ApiTeamsService } from '../../../api/teams/api-teams.service';
 import { Router } from '@angular/router';
 import { GetTeamsParamsDto } from 'src/api/teams/models/get-teams-params.dto';
 import { GetProjectsParamsDto } from 'src/api/projects/models/get-projects-params.dto';
 import { GetProductsParamsDto } from 'src/api/products/models/get-products-params.dto';
 import { GetDomainsParamsDto } from 'src/api/domains/models/get-domains-params.dto';
+import { FilterParams } from 'src/components/filters/model/filter-params';
 @Component({
   selector: 'app-employee-edit-item',
   templateUrl: './employees-edit-item.component.html',
@@ -21,7 +22,7 @@ import { GetDomainsParamsDto } from 'src/api/domains/models/get-domains-params.d
   encapsulation: ViewEncapsulation.None,
 })
 export class EmployeesEditItemComponent implements OnInit {
-  public employee: Employee;
+  public employee: Employee | {} = {};
   public teams: Array<Team> = [];
   public products: Array<Product> = [];
   public projects: Array<Project> = [];
@@ -34,31 +35,22 @@ export class EmployeesEditItemComponent implements OnInit {
     private apiProducts: ApiProductsService,
     private apiProjects: ApiProjectsService,
     private apiDomains: ApiDomainsService
-    ) {}
+  ) {}
 
-  @Input() 
-  
+  @Input()
   ngOnInit(): void {
-    let ldap = this.router.url.split("/employees/")[1].split("/")[0];
+    let ldap = this.router.url.split('/employees/')[1].split('/')[0];
     this.getEmployeeData(Number(ldap));
     this.getTeams();
     this.getDomains();
     this.getProducts();
     this.getProjects();
   }
-  
-  bindTeam(team: Team) {
 
-  }
-  bindProduct(team: Product) {
-
-  }
-  bindProject(team: Project) {
-
-  }
-  bindDomain(team: Domain) {
-
-  }
+  bindTeam(team: Team) {}
+  bindProduct(team: Product) {}
+  bindProject(team: Project) {}
+  bindDomain(team: Domain) {}
 
   getEmployeeData(ldap: number) {
     this.apiEmployees.getEmployeeByLdap(ldap).then((employee: Employee) => {
@@ -88,5 +80,12 @@ export class EmployeesEditItemComponent implements OnInit {
     this.apiDomains.get(params).then((domains: Array<Domain>) => {
       this.domains = domains;
     });
+  }
+
+  onSearch(params?: FilterParams) {
+    this.getTeams(params as GetTeamsParamsDto);
+    this.getDomains(params as GetDomainsParamsDto);
+    this.getProducts(params as GetProductsParamsDto);
+    this.getProjects(params as GetProjectsParamsDto);
   }
 }
