@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +28,7 @@ import { ApiTeamsService } from './api/teams/api-teams.service';
 import { ApiProjectsService } from './api/projects/api-projects.service';
 import { ApiProductsService } from './api/products/api-products.service';
 import { ApiDomainsService } from './api/domains/api-domains.service';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 function initApp(location: Location, apiAuth: ApiAuthService): Function {
   return async (): Promise<void> => {
@@ -106,7 +107,7 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
       deps: [Location, ApiAuthService],
       multi: true,
     },
-
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     ApiAuthService,
     ApiEmployeesService,
     ApiTeamsService,

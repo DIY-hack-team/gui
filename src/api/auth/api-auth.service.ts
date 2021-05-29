@@ -8,7 +8,12 @@ import { LoginResponseDTO } from './dto/login-response.dto';
 export class ApiAuthService {
   curUser: LoginResponseDTO | null = null;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) {
+    let lcItem = localStorage.getItem('curUser');
+    if (lcItem) {
+      this.curUser = JSON.parse(lcItem);
+    }
+  }
 
   async login(username: string, password: string): Promise<LoginResponseDTO> {
     const value = await this.http
@@ -18,6 +23,7 @@ export class ApiAuthService {
       })
       .toPromise();
     this.curUser = value as LoginResponseDTO;
+    localStorage.setItem('curUser', JSON.stringify(this.curUser));
     return this.curUser;
   }
 

@@ -3,45 +3,27 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { Employee } from './models/employee.entity';
+import { GetEmployeesParamsDto } from './models/get-employees-params.dto';
 
 @Injectable()
 export class ApiEmployeesService {
   constructor(private router: Router, private http: HttpClient) {}
 
-  async get(): Promise<Array<Employee>> {
-    return Promise.resolve([
-      {
-        ldap: 60059749,
-        userName: 'Кузьмина Наталия Петровна',
-        legalEntity: 'ЛМВ',
-        organisation: 'Центральный офис',
-        businessRole: 'руководитель отдела корпоративных финансов',
-        costCenter: 'Корпоративные финансы',
-      },
-      {
-        ldap: 60076834,
-        userName: 'Шашкин Валентин Игоревич',
-        legalEntity: 'ЛМВ',
-        organisation: 'Центральный офис',
-        businessRole: 'бизнес-аналитик финансовой дирекции',
-        costCenter: 'ПК Дочерние компании',
-      },
-      {
-        ldap: 60094988,
-        userName: 'Хорошев Андрей Владимирович',
-        legalEntity: 'ЛМВ',
-        organisation: 'Центральный офис',
-        businessRole: 'разработчик',
-        costCenter: 'ПК Импортно-экспортные операции',
-      },
-      {
-        ldap: 60102827,
-        userName: 'Перлов Степан Дмитриевич',
-        legalEntity: 'ЛМВ',
-        organisation: 'Центральный офис',
-        businessRole: 'разработчик',
-        costCenter: 'ПК Импортно-экспортные операции',
-      },
-    ]);
+  async get(params?: GetEmployeesParamsDto): Promise<Array<Employee>> {
+    return await this.http
+      .get(`${environment.basePath}/employees`, { params: params })
+      .toPromise()
+      .then((items: any) => {
+        return items.map((item: any) => {
+          return {
+            ldap: item.ldap,
+            userName: item.name,
+            legalEntity: item.legal_entity,
+            organisation: item.organisation,
+            businessRole: item.business_role,
+            costCenter: item.cost_center,
+          };
+        });
+      });
   }
 }

@@ -2,7 +2,7 @@
   <input
     [(ngModel)]="username"
     class="form-control"
-    placeholder="Enter user name"
+    placeholder="Введите логин"
     name="username"
     type="username"
     autofocus
@@ -12,10 +12,10 @@
     class="form-control"
     name="password"
     type="password"
-    placeholder="Enter password"
+    placeholder="Введите пароль"
   />
-  <button type="submit" class="btn btn-primary btn-block">Login</button>
+  <button type="submit" class="btn btn-primary btn-block">Отправить</button>
   <div *ngIf="failed" class="alert alert-danger" role="alert">
-    Invalid username or password
+    Неправильная связка логин / пароль
   </div>
 </form>
