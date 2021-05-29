@@ -22,7 +22,7 @@ import { FilterParams } from 'src/components/filters/model/filter-params';
   encapsulation: ViewEncapsulation.None,
 })
 export class EmployeesEditItemComponent implements OnInit {
-  public employee: Employee | {} = {};
+  public employee: any = {};
   public teams: Array<Team> = [];
   public products: Array<Product> = [];
   public projects: Array<Project> = [];
