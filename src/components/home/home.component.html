@@ -1,8 +1,9 @@
-<div class="row">
-  <div *ngFor="let item of routes" class="col-md-4">
+<h4>Навигация</h4>
+<div class="row card-info">
+  <div *ngFor="let item of routes" class="col-2">
     <div class="card">
       <div class="card-header">
-        <a routerLink="{{ item.path }}">{{ item.name }}</a>
+        <h5><a routerLink="{{ item.path }}">{{ item.name }}</a></h5>
       </div>
       <div class="card-body">
         <p class="card-text">{{ item.description }}</p>
@@ -12,40 +13,44 @@
 </div>
 <h4>Исходный код</h4>
 <p>Проект состоит из 3-х репозиториев:</p>
-<ol>
+<ul>
   <li>
-    <strong>gui:</strong>
-    <a target="_blank" href="https://github.com/DIY-hack-team/gui"
-      >https://github.com/DIY-hack-team/gui</a
-    >
+
+    <h3><a target="_blank" href="https://github.com/DIY-hack-team/gui"
+      >GUI</a
+    ></h3>
+    <div class="lead">
+    Проект написан на фреймворке
+    <a target="_blank" href="https://angular.io">angular</a>. Настроена
+    непрерываная сборка - скрипт deploy.sh. Его можно интегрировать в любую CI/CD.
+    <br />
+    </div>
   </li>
   <li>
-    <strong>backend:</strong>
-    <a target="_blank" href="https://github.com/DIY-hack-team/backend"
-      >https://github.com/DIY-hack-team/backend</a
-    >
-  </li>
-  <li>
-    <strong>infra:</strong>
-    <a target="_blank" href="https://github.com/DIY-hack-team/infra"
-      >https://github.com/DIY-hack-team/infra</a
-    >
-  </li>
-</ol>
-<p class="project-info">
-  Проект <strong>gui</strong> написан на фреймворке
-  <a target="_blank" href="https://angular.io">angular</a>. Настроена
-  непрерываная сборка - скрипт deploy.sh. Его можно интегрировать в любую CI/CD.
-  <br />
-  Проект <strong>backend</strong> написан на фреймворке
+  <h3><a target="_blank" href="https://github.com/DIY-hack-team/backend"
+    >Backend</a
+  ></h3>
+  <div class="lead">
+  Проект написан на фреймворке
   <a target="_blank" href="https://nestjs.com">nestjs</a>. Настроена
   непрерываная сборка - скрипт deploy.sh. Его можно интегрировать в любую CI/CD.
   <br />
-  Проект <strong>infra</strong> хранит скрипты настройки
-  <a target="_blank" href="https://www.postgresql.org">PostgreSQL</a> и
-  <a target="_blank" href="https://nginx.org">nginx</a>. Конфигурацие
-  обновляется с помощью скрипта deploy.sh
-  <br />
+</div>
+  </li>
+  <li>
+    <h3><a target="_blank" href="https://github.com/DIY-hack-team/infra"
+      >Infra</a
+    ></h3>
+    <div class="lead">
+    Проект <strong>infra</strong> хранит скрипты настройки
+    <a target="_blank" href="https://www.postgresql.org">PostgreSQL</a> и
+    <a target="_blank" href="https://nginx.org">nginx</a>. Конфигурацие
+    обновляется с помощью скрипта deploy.sh
+    <br />
+  </div>
+  </li>
+</ul>
+<p class="project-info">
   Все секреты из проекта убраны. Написаны заглушки для настроек в файле
   .env.local.env. Настройки prod <strong>backend</strong> находятся в
   .env.prod.env
@@ -57,13 +62,13 @@
     >http://151.248.121.169:4200/api</a
   >
 </p>
-<h4>Схема Программных компонент</h4>
+<h4>Схема программных компонент</h4>
 <hr />
-<div class="col-md-6">
+<div class="d-flex justify-content-center">
   <img src="/assets/components.jpg" />
 </div>
 <h4 style="margin-top: 50px">Схема Базы Данных</h4>
 <hr />
-<div class="col-md-6">
-  <img src="/assets/db_structure.jpeg" />
+<div class="d-flex justify-content-center">
+  <img class="db-image" src="/assets/db_structure.jpeg" />
 </div>
