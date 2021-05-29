@@ -1,5 +1,8 @@
-<app-filters searchPlaceholder="Поиск ilike по имени или = по id" [hasDomainFilter]="true"
-  (onSubmit)="onSearch($event)"></app-filters>
+<app-filters
+  searchPlaceholder="Поиск ilike по имени или = по id"
+  [hasDomainFilter]="true"
+  (onSubmit)="onSearch($event)"
+></app-filters>
 <div class="row">
   <div class="col-md-9 ms-sm-auto col-lg-4 px-md-4">
     <div *ngFor="let item of projects" class="card">
@@ -9,9 +12,11 @@
             <a routerLink="/projects/{{ item.id }}">{{ item.name }}</a>
           </h5>
           <div>
-            <span class="item-label">Статус:</span> {{ item.status }}
+            {{ item.employee }}
+            <br /><span class="item-label">Статус:</span> {{ item.status }}
             <ng-container *ngIf="item.itSystem">
-              <br /><span class="item-label">IT Система:</span> {{ item.itSystem }}
+              <br /><span class="item-label">IT Система:</span>
+              {{ item.itSystem }}
             </ng-container>
           </div>
           <!--Change router link defenition-->
