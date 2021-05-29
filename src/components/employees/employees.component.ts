@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { ApiEmployeesService } from 'src/api/empoyees/api-employees.service';
-import { Employee } from 'src/api/empoyees/models/employee.entity';
+import { ApiEmployeesService } from '../../api/employees/api-employees.service';
+import { Employee } from '../../api/employees/models/employee.entity';
+import { GetEmployeesParamsDto } from '../../api/employees/models/get-employees-params.dto';
 import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
@@ -15,12 +16,16 @@ export class EmployeesComponent implements OnInit {
   constructor(private apiEmployees: ApiEmployeesService) {}
 
   ngOnInit(): void {
-    this.apiEmployees.get().then((employees: Array<Employee>) => {
+    this.getEmployees();
+  }
+
+  getEmployees(params?: GetEmployeesParamsDto): void {
+    this.apiEmployees.get(params).then((employees: Array<Employee>) => {
       this.employees = employees;
     });
   }
 
   onSearch(params: FilterParams) {
-    console.log(params);
+    this.getEmployees(params as GetEmployeesParamsDto);
   }
 }

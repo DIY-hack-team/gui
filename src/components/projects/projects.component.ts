@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiProjectsService } from 'src/api/projects/api-projects.service';
-import { Project } from 'src/api/projects/entities/project.entity';
+import { GetProjectsParamsDto } from 'src/api/projects/models/get-projects-params.dto';
+import { Project } from 'src/api/projects/models/project.entity';
 import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
@@ -15,12 +16,16 @@ export class ProjectsComponent implements OnInit {
   constructor(private apiProjects: ApiProjectsService) {}
 
   ngOnInit(): void {
-    this.apiProjects.get().then((projects: Array<Project>) => {
+    this.getProjects();
+  }
+
+  getProjects(params?: GetProjectsParamsDto): void {
+    this.apiProjects.get(params).then((projects: Array<Project>) => {
       this.projects = projects;
     });
   }
 
-  onSearch(params: FilterParams) {
-    console.log(params);
+  onSearch(params: FilterParams): void {
+    this.getProjects(params as GetProjectsParamsDto);
   }
 }

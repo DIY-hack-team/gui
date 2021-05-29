@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiTeamsService } from 'src/api/teams/api-teams.service';
-import { Team } from 'src/api/teams/entites/team.entity';
+import { GetTeamsParamsDto } from 'src/api/teams/models/get-teams-params.dto';
+import { Team } from 'src/api/teams/models/team.entity';
 import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
@@ -15,12 +16,16 @@ export class TeamsComponent implements OnInit {
   constructor(private apiTeams: ApiTeamsService) {}
 
   ngOnInit(): void {
-    this.apiTeams.get().then((teams: Array<Team>) => {
+    this.getTeams();
+  }
+
+  getTeams(params?: GetTeamsParamsDto): void {
+    this.apiTeams.get(params).then((teams: Array<Team>) => {
       this.teams = teams;
     });
   }
 
-  onSearch(params: FilterParams) {
-    console.log(params);
+  onSearch(params: FilterParams): void {
+    this.getTeams(params as GetTeamsParamsDto);
   }
 }

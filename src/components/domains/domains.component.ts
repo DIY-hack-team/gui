@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ApiDomainsService } from 'src/api/domains/api-domains.service';
 import { Domain } from 'src/api/domains/models/domain.entity';
+import { GetDomainsParamsDto } from 'src/api/domains/models/get-domains-params.dto';
 import { FilterParams } from '../filters/model/filter-params';
 
 @Component({
@@ -15,12 +16,16 @@ export class DomainsComponent implements OnInit {
   constructor(private apiDomains: ApiDomainsService) {}
 
   ngOnInit(): void {
-    this.apiDomains.get().then((domains: Array<Domain>) => {
+    this.getDomains();
+  }
+
+  getDomains(params?: GetDomainsParamsDto): void {
+    this.apiDomains.get(params).then((domains: Array<Domain>) => {
       this.domains = domains;
     });
   }
 
-  onSearch(params: FilterParams) {
-    console.log(params);
+  onSearch(params: FilterParams): void {
+    this.getDomains(params as GetDomainsParamsDto);
   }
 }

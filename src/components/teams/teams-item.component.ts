@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, Input } from '@angular/core';
-import { Team } from 'src/api/teams/entites/team.entity';
+import { Team } from 'src/api/teams/models/team.entity';
 
 @Component({
   selector: 'app-teams-item',

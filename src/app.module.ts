@@ -23,12 +23,13 @@ import { ProductsComponent } from './components/products/products.component';
 import { DomainsComponent } from './components/domains/domains.component';
 
 import { ApiAuthService } from './api/auth/api-auth.service';
-import { ApiEmployeesService } from './api/empoyees/api-employees.service';
+import { ApiEmployeesService } from './api/employees/api-employees.service';
 import { ApiTeamsService } from './api/teams/api-teams.service';
 import { ApiProjectsService } from './api/projects/api-projects.service';
 import { ApiProductsService } from './api/products/api-products.service';
 import { ApiDomainsService } from './api/domains/api-domains.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { UnauthorizedInterceptor } from './interceptors/unauthorized.interceptor';
 
 function initApp(location: Location, apiAuth: ApiAuthService): Function {
   return async (): Promise<void> => {
@@ -108,6 +109,11 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
       multi: true,
     },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true,
+    },
     ApiAuthService,
     ApiEmployeesService,
     ApiTeamsService,
