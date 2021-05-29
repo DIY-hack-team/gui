@@ -6,19 +6,18 @@
       <div class="card-body">
         <div class="info-zone">
           <h5 class="card-title">
-            <a routerLink="/employees/{{ item.ldap }}">{{ item.userName }}</a>
+            <a routerLink="/employees/{{ item.ldap }}/view">{{ item.userName }}</a>
           </h5>
           <div>
             <span class="item-label">Организация:</span> {{ item.organisation }}
             <br /><span class="item-label">Отдел:</span> {{ item.costCenter }}
             <br /><span class="item-label">Должность:</span> {{ item.businessRole }}
           </div>
-          <!--Change router link defenition-->
           <div class="row actions">
-            <a routerLink="/teams/bind:employee-{{item.ldap}}" class="btn btn-outline-primary">
+            <a routerLink="/employees/{{ item.ldap }}/edit" class="btn btn-outline-primary">
               <i class="bi bi-share"></i> Редактировать связи
             </a>
-            <a routerLink="" class="btn btn-outline-primary">
+            <a routerLink="/employees/{{ item.ldap }}/view" class="btn btn-outline-primary">
               <i class="bi bi-three-dots-vertical"></i> Подробнее
             </a>
           </div>
@@ -30,4 +29,3 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

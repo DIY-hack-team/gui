@@ -16,10 +16,14 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { EmployeesComponent } from './components/employees/employees.component';
+import { EmployeesEditItemComponent } from './components/employees/edit-component/employees-edit-item.component';
+import { EmployeesViewItemComponent } from './components/employees/view-component/employees-view-item.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { TeamsItemComponent } from './components/teams/teams-item.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ProductsEditItemComponent } from './components/products/edit-component/products-edit-item.component';
+import { ProductsViewItemComponent } from './components/products/view-component/products-view-item.component';
 import { DomainsComponent } from './components/domains/domains.component';
 
 import { ApiAuthService } from './api/auth/api-auth.service';
@@ -51,6 +55,8 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
     HomeComponent,
 
     EmployeesComponent,
+    EmployeesEditItemComponent,
+    EmployeesViewItemComponent,
     TeamsComponent,
     TeamsItemComponent,
     ProjectsComponent,
@@ -72,8 +78,11 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
       },
       {
         path: 'employees',
-        component: EmployeesComponent,
-        pathMatch: 'full',
+        children: [
+          {path: "", component: EmployeesComponent, pathMatch: 'full'},
+          {path: ':ldap/view', component: EmployeesViewItemComponent, pathMatch: 'full'},
+          {path: ':ldap/edit', component: EmployeesEditItemComponent, pathMatch: 'full'},
+        ],
       },
       {
         path: 'teams',

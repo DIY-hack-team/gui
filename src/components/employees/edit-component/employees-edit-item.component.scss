@@ -1,0 +1,56 @@
+@import '../../../colors';
+
+.view-container {
+  background-color: rgba($secondary,.1);
+  min-height: 50vh;
+
+  .nav-tabs {
+    border-color: $primary;
+  }
+  .main-info {
+    align-items: center;
+    justify-content: space-around;
+
+    .personal {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .item-label {
+        font-weight: bold;
+      }
+  
+      .photo-zone {
+        font-size: 1000%;
+        margin-right: 5%;
+      }
+    }
+    .contacts-zone {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .tab-info {
+    .team {
+      display: flex;
+      align-items: center;
+      margin: 1% 5%;
+      width: 90%;
+      justify-content: flex-start;
+
+      .team-logo {
+        padding-right: 2%;
+        font-size: 150%;
+      }
+
+      .team-name {
+        padding-right: 2%;
+        margin: 0;
+      }
+
+      .bind-description {
+        margin: 0;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

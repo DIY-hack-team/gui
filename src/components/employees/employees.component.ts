@@ -3,6 +3,7 @@ import { ApiEmployeesService } from '../../api/employees/api-employees.service';
 import { Employee } from '../../api/employees/models/employee.entity';
 import { GetEmployeesParamsDto } from '../../api/employees/models/get-employees-params.dto';
 import { FilterParams } from '../filters/model/filter-params';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -13,7 +14,9 @@ import { FilterParams } from '../filters/model/filter-params';
 export class EmployeesComponent implements OnInit {
   public employees: Array<Employee> = [];
 
-  constructor(private apiEmployees: ApiEmployeesService) {}
+  constructor(private apiEmployees: ApiEmployeesService, private router: Router, private route: ActivatedRoute) {}
+
+  currentLdap: number;
 
   ngOnInit(): void {
     this.getEmployees();
