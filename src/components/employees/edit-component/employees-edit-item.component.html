@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-lg-6 view-container">
+    <div class="row d-flex main-info">
+      <div class="col-8 personal">
+        <div class="photo-zone">
+          <i class="bi bi-person-square"></i>
+        </div>
+        <div class="info-zone">
+          <h5 class="card-title">
+            <a routerLink="/employees//view"></a>
+          </h5>
+          <div>
+            <span class="item-label">Организация:</span>
+            <br /><span class="item-label">Отдел:</span>
+            <br /><span class="item-label">Должность:</span>
+          </div>
+        </div>
+      </div>
+      <div class="contacts-zone">
+        <a href="">Workplace</a>
+        <a href="">Exchange</a>
+        <a href="">Slack</a>
+        <a href="">Telegram</a>
+      </div>
+    </div>
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+      <li ngbNavItem>
+        <a ngbNavLink>Команды</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Продукты</a>
+        <ng-template ngbNavContent></ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Проекты</a>
+        <ng-template ngbNavContent></ng-template>
+      </li>
+      <li ngbNavItem>
+        <a ngbNavLink>Домены</a>
+        <ng-template ngbNavContent></ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav"></div>
+  </div>
+</div>
