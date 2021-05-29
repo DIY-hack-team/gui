@@ -14,6 +14,7 @@ export class ApiTeamsService {
       .get(`${environment.basePath}/teams`, { params: params })
       .toPromise()
       .then((items: any) => {
+        items = items || [];
         return items.map((item: any) => {
           return {
             id: item.product_team_id,

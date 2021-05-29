@@ -7,12 +7,15 @@
         </div>
         <div class="info-zone">
           <h5 class="card-title">
-            <a>{{employee.userName}}</a>
+            <a>{{ employee.userName }}</a>
           </h5>
           <div>
-            <span class="item-label">Организация: </span>{{employee.organisation}}
-            <br /><span class="item-label">Отдел: </span>{{employee.costCenter}}
-            <br /><span class="item-label">Должность: </span>{{employee.businessRole}}
+            <span class="item-label">Организация: </span
+            >{{ employee.organisation }} <br /><span class="item-label"
+              >Отдел: </span
+            >{{ employee.costCenter }} <br /><span class="item-label"
+              >Должность: </span
+            >{{ employee.businessRole }}
           </div>
         </div>
       </div>
@@ -23,14 +26,25 @@
         <a href="">Telegram</a>
       </div>
     </div>
+    <app-filters
+      searchPlaceholder="Поиск ilike по имени или = по id"
+      [hasDomainFilter]="true"
+      (onSubmit)="onSearch($event)"
+    ></app-filters>
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li ngbNavItem>
         <a ngbNavLink>Команды</a>
         <ng-template ngbNavContent>
           <div *ngFor="let item of teams" class="d-flex item-row row">
-            <p class="name col-6">{{item.nameRus}}</p>
-            <input type="text" placeholder="Описание связи" class="col-4">
-            <button type="button" class="btn btn-outline-primary" (click)="bindTeam(item)">Установить связь</button>
+            <p class="name col-6">{{ item.nameRus }}</p>
+            <input type="text" placeholder="Описание связи" class="col-4" />
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="bindTeam(item)"
+            >
+              Установить связь
+            </button>
           </div>
         </ng-template>
       </li>
@@ -38,9 +52,15 @@
         <a ngbNavLink>Проекты</a>
         <ng-template ngbNavContent>
           <div *ngFor="let item of projects" class="d-flex item-row row">
-            <p class="name col-6">{{item.name}}</p>
-            <input type="text" placeholder="Описание связи" class="col-4">
-            <button type="button" class="btn btn-outline-primary" (click)="bindProject(item)">Установить связь</button>
+            <p class="name col-6">{{ item.name }}</p>
+            <input type="text" placeholder="Описание связи" class="col-4" />
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="bindProject(item)"
+            >
+              Установить связь
+            </button>
           </div>
         </ng-template>
       </li>
@@ -48,9 +68,15 @@
         <a ngbNavLink>Продукты</a>
         <ng-template ngbNavContent>
           <div *ngFor="let item of products" class="d-flex item-row row">
-            <p class="name col-6">{{item.name}}</p>
-            <input type="text" placeholder="Описание связи" class="col-4">
-            <button type="button" class="btn btn-outline-primary" (click)="bindProduct(item)">Установить связь</button>
+            <p class="name col-6">{{ item.name }}</p>
+            <input type="text" placeholder="Описание связи" class="col-4" />
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="bindProduct(item)"
+            >
+              Установить связь
+            </button>
           </div>
         </ng-template>
       </li>
@@ -58,9 +84,15 @@
         <a ngbNavLink>Домены</a>
         <ng-template ngbNavContent>
           <div *ngFor="let item of domains" class="d-flex item-row row">
-            <p class="name col-6">{{item.nameRus}}</p>
-            <input type="text" placeholder="Описание связи" class="col-4">
-            <button type="button" class="btn btn-outline-primary" (click)="bindDomain(item)">Установить связь</button>
+            <p class="name col-6">{{ item.nameRus }}</p>
+            <input type="text" placeholder="Описание связи" class="col-4" />
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              (click)="bindDomain(item)"
+            >
+              Установить связь
+            </button>
           </div>
         </ng-template>
       </li>

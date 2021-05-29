@@ -14,6 +14,7 @@ export class ApiDomainsService {
       .get(`${environment.basePath}/domains`, { params: params })
       .toPromise()
       .then((items: any) => {
+        items = items || [];
         return items.map((item: any) => {
           return {
             id: item.domain_id,

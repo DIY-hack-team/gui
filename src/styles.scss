@@ -12,3 +12,7 @@ $theme-colors: (
 main {
   min-width: 320px;
 }
+
+.disabled {
+  cursor: default !important;
+}
