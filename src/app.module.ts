@@ -30,6 +30,7 @@ import { ApiProductsService } from './api/products/api-products.service';
 import { ApiDomainsService } from './api/domains/api-domains.service';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { UnauthorizedInterceptor } from './interceptors/unauthorized.interceptor';
+import { AppbarRoutesService } from './components/appbar/appbar-routes.service';
 
 function initApp(location: Location, apiAuth: ApiAuthService): Function {
   return async (): Promise<void> => {
@@ -114,6 +115,8 @@ function initApp(location: Location, apiAuth: ApiAuthService): Function {
       useClass: UnauthorizedInterceptor,
       multi: true,
     },
+    AppbarRoutesService,
+
     ApiAuthService,
     ApiEmployeesService,
     ApiTeamsService,

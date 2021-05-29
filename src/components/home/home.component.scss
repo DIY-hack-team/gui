@@ -1,3 +1,11 @@
 app-home {
   display: block;
+  .card {
+    min-height: 220px;
+    margin-bottom: 16px;
+  }
+
+  .project-info {
+    max-width: 700px;
+  }
 }

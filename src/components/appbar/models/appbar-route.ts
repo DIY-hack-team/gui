@@ -1,4 +1,5 @@
 export class AppbarRoute {
-  name: string;
   path: string;
+  name: string;
+  description: string;
 }
